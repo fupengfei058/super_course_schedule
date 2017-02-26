@@ -1,0 +1,29 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/hole/logs",
+    "pages/grade/logs",
+    "pages/personal/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "课程表"
+    }, {
+      "pagePath": "pages/hole/logs",
+      "text": "树洞"
+    }, {
+      "pagePath": "pages/grade/logs",
+      "text": "成绩查询"
+    }, {
+      "pagePath": "pages/personal/logs",
+      "text": "个人中心"
+    }]
+  }
+}
