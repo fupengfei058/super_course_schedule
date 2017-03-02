@@ -35,6 +35,11 @@ if(objData.userName && objData.userPassword){
           this.setData({isLogin: false});
           wx.showModal({title: '登录失败', content: '账号或密码错误', showCancel: false});
      }
+   }else{
+       wx.hideToast();
+       wx.setStorageSync('isLogin', false);
+        this.setData({isLogin: false});
+        wx.showModal({title: '登录失败', content: '请输入账号密码', showCancel: false});
    }
 },
 
