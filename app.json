@@ -1,9 +1,9 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/hole/logs",
+    "pages/course/course",
     "pages/grade/logs",
-    "pages/personal/logs"
+    "pages/hole/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -14,16 +14,24 @@
   "tabBar": {
     "list": [{
       "pagePath": "pages/index/index",
-      "text": "课程表"
-    }, {
-      "pagePath": "pages/hole/logs",
-      "text": "树洞"
+      "text": "个人主页",
+      "iconPath": "images/index.png",
+      "selectedIconPath":"images/index_.png"
+    },{
+      "pagePath": "pages/course/course",
+      "text": "课程表",
+      "iconPath": "images/course_.png",
+      "selectedIconPath":"images/course.png"
     }, {
       "pagePath": "pages/grade/logs",
-      "text": "成绩查询"
+      "text": "成绩查询",
+      "iconPath": "images/grade_.png",
+      "selectedIconPath":"images/grade.png"
     }, {
-      "pagePath": "pages/personal/logs",
-      "text": "个人中心"
+      "pagePath": "pages/hole/logs",
+      "text": "树洞",
+      "iconPath": "images/hole_.png",
+      "selectedIconPath":"images/hole.png"
     }]
   }
 }
