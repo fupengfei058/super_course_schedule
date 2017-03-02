@@ -51,10 +51,30 @@ Page({
     };
   },
   onLoad: function(options){
-    var _this = this;
-    app.loginLoad(function(){
-      _this.loginHandler.call(_this, options);
+    // var _this = this;
+    // app.loginLoad(function(){
+    //   _this.loginHandler.call(_this, options);
+    // });
+    console.log('onload');
+    var that = this;
+    app.getUserInfo(function(userInfo){
+      //更新数据
+      that.setData({
+        userInfo:userInfo
+      });
     });
+    var $this = this;
+    var xhr = new XMLHttpRequest;
+    xhr.open('POST','http://api.course.com/course_admin/get_course');
+    xhr.send();
+    xhr.onloadend = function(){
+      if(xhr.status = 200){
+        var ret = JSON.parse(xhr.responseTest);
+        $this.setData({
+          imgUrls : ret
+        });
+      }
+    }
   },
   //让分享时自动登录
   loginHandler: function(options){
@@ -357,39 +377,39 @@ Page({
     }
     wx.showNavigationBarLoading();
     //获取课表
-    wx.request({
-      url: "http://api.course.com/course_admin/get_course",
-      method: 'POST',
-      data: app.key(data),
-      success: function(res) {
-        if (res.data && res.data.status === 200){
-          var _data = res.data.data;
-          if(_data) {
-            if(!_this.data.name){
-              //保存课表缓存
-              app.saveCache('kb', _data);
-            }
-            kbRender(_data);
-          }else{ _this.setData({ remind: '暂无数据' }); }
+    // wx.request({
+    //   url: "http://api.course.com/course_admin/get_course",
+    //   method: 'POST',
+    //   data: app.key(data),
+    //   success: function(res) {
+    //     if (res.data && res.data.status === 200){
+    //       var _data = res.data.data;
+    //       if(_data) {
+    //         if(!_this.data.name){
+    //           //保存课表缓存
+    //           app.saveCache('kb', _data);
+    //         }
+    //         kbRender(_data);
+    //       }else{ _this.setData({ remind: '暂无数据' }); }
 
-        }else{
-          app.removeCache('kb');
-          _this.setData({
-            remind: res.data.message || '未知错误'
-          });
-        }
-      },
-      fail: function(res) {
-        if(_this.data.remind == '加载中'){
-          _this.setData({
-            remind: '网络错误'
-          });
-        }
-        console.warn('网络错误');
-      },
-      complete: function() {
-        wx.hideNavigationBarLoading();
-      }
-    });
+    //     }else{
+    //       app.removeCache('kb');
+    //       _this.setData({
+    //         remind: res.data.message || '未知错误'
+    //       });
+    //     }
+    //   },
+    //   fail: function(res) {
+    //     if(_this.data.remind == '加载中'){
+    //       _this.setData({
+    //         remind: '网络错误'
+    //       });
+    //     }
+    //     console.warn('网络错误');
+    //   },
+    //   complete: function() {
+    //     wx.hideNavigationBarLoading();
+    //   }
+    // });
   }
 });
