@@ -2,8 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/course/course",
-    "pages/grade/logs",
-    "pages/hole/logs"
+    "pages/grade/grade",
+    "pages/hole/hole"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -23,12 +23,12 @@
       "iconPath": "images/course_.png",
       "selectedIconPath":"images/course.png"
     }, {
-      "pagePath": "pages/grade/logs",
+      "pagePath": "pages/grade/grade",
       "text": "成绩查询",
       "iconPath": "images/grade_.png",
       "selectedIconPath":"images/grade.png"
     }, {
-      "pagePath": "pages/hole/logs",
+      "pagePath": "pages/hole/hole",
       "text": "树洞",
       "iconPath": "images/hole_.png",
       "selectedIconPath":"images/hole.png"
