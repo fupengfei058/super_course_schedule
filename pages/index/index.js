@@ -3,26 +3,34 @@ Page({
  data:{
   userName:'',
   userPassword:'',
+  user:'',
   isLogin:false
  },
  
 formSubmit:function(e){
- console.log(e.detail.value);//格式 Object {userName: "user", userPassword: "password"}
- wx.showToast({title: '登录请求中', icon: 'loading', duration: 10000});
+ var $this = this;
+ console.log(e.detail.value);
+ wx.showToast({title: '正在登陆', icon: 'loading', duration: 10000});
   //获得表单数据
 var objData = e.detail.value;
- 
 if(objData.userName && objData.userPassword){
    // 同步方式存储表单数据
    wx.setStorageSync('userName', objData.userName);
    wx.setStorageSync('userPassword', objData.userPassword);
-
-   //请求教务系统 return flag
-   var flag = true;
-   wx.hideToast();
-   if(flag){
+   //请求教务系统
+wx.request({
+    url: 'https://fupengfei.s1.natapp.cc/personal_admin/check_user',
+    data: {
+    'username':objData.userName,
+    'password':objData.userPassword,
+    },
+    method: 'GET',
+    dataType: 'json',
+    success: function(res){
+    wx.hideToast();
+    if(res.statusCode == 200 && res.data.code == 200){
        wx.setStorageSync('isLogin', true);
-       this.setData({isLogin: true});
+       $this.setData({isLogin: true,user: res.data.data});
        //跳转到成功页面
         wx.switchTab({
             url:'../../pages/course/course',
@@ -32,13 +40,21 @@ if(objData.userName && objData.userPassword){
         });
       }else{
           wx.setStorageSync('isLogin', false);
-          this.setData({isLogin: false});
+          $this.setData({isLogin: false});
           wx.showModal({title: '登录失败', content: '账号或密码错误', showCancel: false});
      }
+    },
+    fail: function() {
+    wx.hideToast();
+    wx.setStorageSync('isLogin', false);
+        $this.setData({isLogin: false});
+        wx.showModal({title: '登录失败', content: '请检查网络设置', showCancel: false});
+    },
+    })
    }else{
        wx.hideToast();
        wx.setStorageSync('isLogin', false);
-        this.setData({isLogin: false});
+        $this.setData({isLogin: false});
         wx.showModal({title: '登录失败', content: '请输入账号密码', showCancel: false});
    }
 },

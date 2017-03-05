@@ -15,7 +15,7 @@
     </block>
     <block wx:else>
     <view>
-    当前用户： <text>傅鹏飞</text>
+    当前用户： <text>{{user}}</text>
     </view>
     <view class="row" style="margin-top:20px" bindtap="logout">
       <button type="default">退出登录</button>

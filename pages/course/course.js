@@ -32,23 +32,34 @@ onShow: function(options){
         }
       });
     }});
+  }else{
+    //已登录
+    var $this = this;
+    wx.request({
+    url: 'https://fupengfei.s1.natapp.cc/course_admin/get_course',
+    data: {
+    'username':wx.getStorageSync('userName'),
+    'password':wx.getStorageSync('userPassword'),
+    },
+    method: 'GET',
+    dataType: 'json',
+    success: function(res){
+    if(res.statusCode == 200 && res.data.code == 200){
+      console.log(res);
+    }
+    },
+    fail: function() {
+
+    },
+    })
   }
 },
 onLoad:function(){
-  //wx.showToast({title: '正在读取课表', icon: 'loading', duration: 10000});
-    var $this = this;
-    var xhr = new XMLHttpRequest;
-    xhr.open('POST','http://api.course.com/course_admin/get_course');
-    xhr.send();
-    xhr.onloadend = function(){
-      if(xhr.status = 200){
-        //wx.hideToast();
-        var ret = JSON.parse(xhr.responseTest);
-        $this.setData({
-          imgUrls : ret
-        });
-      }
-    }
+  
+},
+
+showCourse: function(e){
+
 }
 
 });
