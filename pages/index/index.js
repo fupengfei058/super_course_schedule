@@ -41,21 +41,21 @@ wx.request({
       }else{
           wx.setStorageSync('isLogin', false);
           $this.setData({isLogin: false});
-          wx.showModal({title: '登录失败', content: '账号或密码错误', showCancel: false});
+          wx.showModal({title: '登录失败', content: '账号或密码错误!', showCancel: false});
      }
     },
     fail: function() {
     wx.hideToast();
     wx.setStorageSync('isLogin', false);
         $this.setData({isLogin: false});
-        wx.showModal({title: '登录失败', content: '请检查网络设置', showCancel: false});
+        wx.showModal({title: '登录失败', content: '请检查网络设置!', showCancel: false});
     },
     })
    }else{
        wx.hideToast();
        wx.setStorageSync('isLogin', false);
         $this.setData({isLogin: false});
-        wx.showModal({title: '登录失败', content: '请输入账号密码', showCancel: false});
+        wx.showModal({title: '登录失败', content: '请输入账号密码!', showCancel: false});
    }
 },
 

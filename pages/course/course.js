@@ -3,7 +3,7 @@
 var app = getApp();
 Page({
   data: {
-    remind: '加载中',
+    course_empty:true,
     _days: ['一','二','三','四','五','六','日'],
     _weeks : ['第一周','第二周','第三周','第四周','第五周','第六周','第七周','第八周','第九周','第十周','十一周','十二周','十三周','十四周','十五周','十六周','十七周','十八周','十九周','二十周'],    
     _time: [ //课程时间与指针位置的映射，{begin:课程开始,end:结束时间,top:指针距开始top格数}
@@ -34,6 +34,7 @@ onShow: function(options){
     }});
   }else{
     //已登录
+    wx.showToast({title: '正在加载课表', icon: 'loading', duration: 10000});
     var $this = this;
     wx.request({
     url: 'https://fupengfei.s1.natapp.cc/course_admin/get_course',
@@ -44,12 +45,17 @@ onShow: function(options){
     method: 'GET',
     dataType: 'json',
     success: function(res){
+      wx.hideToast();
     if(res.statusCode == 200 && res.data.code == 200){
+      $this.setData({course_empty:false});
       console.log(res);
+    }else{
+      wx.showModal({title: '加载失败', content: '请检查网络设置！', showCancel: false});
     }
     },
     fail: function() {
-
+      wx.hideToast();
+      wx.showModal({title: '加载失败', content: '请检查网络设置！', showCancel: false});
     },
     })
   }
@@ -60,6 +66,8 @@ onLoad:function(){
 
 showCourse: function(e){
 
-}
+},
+
+catchMoveDetail: function(){ /*阻止滑动穿透*/ },
 
 });
