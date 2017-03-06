@@ -1,74 +1,27 @@
-<view class="container">
 <view wx:if="{{course_empty}}">
    <image class="remind-img" src="/images/nothing.png"></image>
 </view>
 <block wx:else>
-        <!-- 主体 -->
-        <view class="main-box {{blur?'main-box-active':''}}">
-            <!-- 左边课数，34节和78节marginBottom为12rpx，其他均为8rpx，课程卡片与这相同 -->
-            <view class="kb-num-ctn blur-area {{blur?'blur kb-num-ctn-hide':''}}">
-                <view class="kb-mon kb-date">
-                    <block wx:if="{{week != '*'}}"><text>{{dates[week-1][0].month}}</text><text></text></block>
-                </view>
-                <view class="mg-t">1</view>
-                <view class="mg-8">2</view>
-                <view>3</view>
-                <view class="mg-12">4</view>
-                <view>5</view>
-                <view class="mg-8">6</view>
-                <view>7</view>
-                <view class="mg-12">8</view>
-                <view>9</view>
-                <view class="mg-8">10</view>
-                <view>11</view>
-                <view>12</view>
-                <view class="kb-timeline-tri" style="top:{{timelineTop}}rpx"></view>
-            </view>
-            <scroll-view class="kb-ctn" catchscroll="scrollXHandle" scroll-x="true" scroll-left="{{scroll.left}}" >
-                <!-- 头部星期数 -->
-                <view class="kb-title blur-area">
-                        <view class="kb-title-item">
-                            <text>周{{_days[0]}}</text>
-                            <text>周{{_days[1]}}</text>
-                            <text>周{{_days[2]}}</text>
-                            <text>周{{_days[3]}}</text>
-                            <text>周{{_days[4]}}</text>
-                            <text>周{{_days[5]}}</text>
-                            <text>周{{_days[6]}}</text>
-                        </view>
-                </view>
-                
-
-                <!-- 卡片部分 -->
-                <view class="kb-cards-ctn blur-area">
-                    <!-- 每一列为一组 -->
-                    <view class="kb-cards-column" wx:for="{{lessons}}" wx:key="{{day}}" wx:for-item="day_lesson" wx:for-index="day">
-                        <!-- today 0周一,1周二 -->
-                        <block wx:if="{{(today===day) && (toweek == week)}}">
-                            <view class="kb-bg" style="background:-webkit-gradient(linear,left top,left bottom,from(#eff7ff),color-stop({{(timelineTop+4)/1260}}, #8cc4ff),to(#eff7ff));"></view>
-                            <view class="kb-timeline" style="display:block;top:{{timelineTop}}rpx"></view>
-                        </block>
-                        <!-- 循环当天的的6节课 -->
-                        <view class="kb-card {{wid%2==0?'mg-8':'mg-12'}}" wx:for="{{day_lesson}}" wx:key="{{wid}}" wx:for-index="wid">
-                            <!-- 循环重叠课 -->
-                            <block wx:for="{{day_lesson[wid]}}" wx:key="{{cid}}" wx:for-item="cards" wx:for-index="cid">
-                                <!-- 循环周数，与当前周相同或当前周为*时显示 -->
-                                <view style="height:{{cards.number*100}}rpx" data-day="{{day}}" data-wid="{{wid}}" data-cid="{{cid}}" bindtap="showDetail" wx:for="{{cards.weeks}}" wx:key="*this" wx:for-item="iweek" class="mg-8 kb-card-content {{cards.conflictWeeks[iweek] || (week == '*' && cards.klen > 1) ?'k-sec':''}} {{iweek==week || week == '*' ?cards.color:''}}" wx:if="{{iweek==week || week == '*'}}">
-                                    <!-- 判断上课地点是数字还是汉字 -->
-                                    <text wx:if="{{cards.place < '99999'}}" class="kb-card-place-num">{{cards.place}}</text>
-                                    <text wx:else class="kb-card-place-words">{{cards.place}}</text>
-                                    <view class="kb-card-name">
-                                        <text class="kb-card-name-text" style="-webkit-line-clamp:{{3*(cards.number-1)}};">{{cards.name}}</text>
-                                    </view>
-                                </view>
-                            </block>
-                        </view>
-                    </view>
-                </view>
-            </scroll-view>        
-        </view>
-
-</block>
+<!-- 主体 -->
+<view class="table">
+    <view class="tr bg-w">
+       <view class="th">周一</view>
+       <view class="th">周二</view>
+       <view class="th">周三</view>
+       <view class="th">周四</view>
+       <view class="th">周五</view>
+       <view class="th">周六</view>
+       <view class="th">周日</view>
+    </view>
+    <block wx:for="{{listData}}" wx:for-item="items">
+    <view class="tr bg-g" wx:for="{{items}}" wx:for-item="item">
+        <view class="td">{{item}}</view>
+     </view>
+     <!--<view class="tr" wx:else>
+        <view class="td">{{item.code}}</view>
+        <view class="td">{{item.text}}</view>
+        <view class="td">{{item.type}}</view>
+     </view>-->
+     </block>
 </view>
-
-
+</block>
