@@ -4,24 +4,26 @@
 <block wx:else>
 <!-- 主体 -->
 <view class="table">
-    <view class="tr bg-w">
+    <view class="thead bg-w">
+       <view class="th"> </view>
        <view class="th">周一</view>
        <view class="th">周二</view>
        <view class="th">周三</view>
        <view class="th">周四</view>
        <view class="th">周五</view>
-       <view class="th">周六</view>
-       <view class="th">周日</view>
     </view>
-    <block wx:for="{{listData}}" wx:for-item="items">
-    <view class="tr bg-g" wx:for="{{items}}" wx:for-item="item">
-        <view class="td">{{item}}</view>
+    <block>
+    <view wx:for="{{listData}}" wx:for-index="i" wx:for-item="items">
+
+    <view class="tr bg-g" wx:if="{{i % 2 == 0}}">
+        <view class="td" wx:for="items" wx:for-index="j">{{listData[i][j]}}</view>
      </view>
-     <!--<view class="tr" wx:else>
-        <view class="td">{{item.code}}</view>
-        <view class="td">{{item.text}}</view>
-        <view class="td">{{item.type}}</view>
-     </view>-->
+
+     <view class="tr" wx:else>
+        <view class="td" wx:for="items" wx:for-index="j">{{listData[i][j]}}</view>
+     </view>
+
+     </view>
      </block>
 </view>
 </block>

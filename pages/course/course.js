@@ -32,7 +32,8 @@ onShow: function(options){
       wx.hideToast();
     if(res.statusCode == 200 && res.data.code == 200){
       $this.setData({course_empty:false,listData:res.data.data});
-      console.log(res);
+      console.log(res.data.data);
+      //TODO 周五没循环出来
     }else{
       wx.showModal({title: '加载失败', content: '请检查网络设置！', showCancel: false});
     }

@@ -94,5 +94,6 @@ logout:function(e){
  },
  onUnload:function(){
   // 页面关闭
+  //TODO 不记住密码，销毁缓存
  }
 })

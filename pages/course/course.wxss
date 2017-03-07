@@ -1,17 +1,26 @@
 .table {  
     border: 0px solid darkgray;
  }
-.tr {
+.thead {
     display: flex;
     width: 100%;
     justify-content: center;  
     height: 3rem;  
     align-items: center;
+    font-size:12pt;
+}
+.tr {
+    display: flex;
+    width: 100%;
+    justify-content: center;  
+    height: 7rem;  
+    align-items: center;
 }
 .td {    
-    width:40%;    
+    width:15%;    
     justify-content: center;    
     text-align: center;
+    font-size:9pt;
 }
 .bg-w{  
     background: snow;
@@ -20,7 +29,7 @@
     background: #E6F3F9;
 }
 .th {  
-    width: 40%;  
+    width: 20%;  
     justify-content: center;  
     background: #3366FF;  
     color: #fff;  
