@@ -7,7 +7,7 @@
     justify-content: center;  
     height: 3rem;  
     align-items: center;
-    font-size:12pt;
+    font-size:11pt;
 }
 .tr {
     display: flex;
@@ -19,8 +19,9 @@
 .td {    
     width:15%;    
     justify-content: center;    
-    text-align: center;
+    text-align: left;
     font-size:9pt;
+    margin-right:3pt;
 }
 .bg-w{  
     background: snow;
@@ -29,8 +30,8 @@
     background: #E6F3F9;
 }
 .th {  
-    width: 20%;  
-    justify-content: center;  
+    width: 17%;  
+    justify-content: left;  
     background: #3366FF;  
     color: #fff;  
     display: flex;  

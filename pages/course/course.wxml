@@ -13,17 +13,17 @@
        <view class="th">周五</view>
     </view>
     <block>
-    <view wx:for="{{listData}}" wx:for-index="i" wx:for-item="items">
+    <block wx:for="{{listData}}" wx:for-index="i">
 
     <view class="tr bg-g" wx:if="{{i % 2 == 0}}">
-        <view class="td" wx:for="items" wx:for-index="j">{{listData[i-1][j-1]}}</view>
+        <view class="td" wx:for="{{listData[i]}}" wx:for-item="course">{{course}}</view>
      </view>
 
      <view class="tr" wx:else>
-        <view class="td" wx:for="items" wx:for-index="j">{{listData[i-1][j-1]}}</view>
+        <view class="td" wx:for="{{listData[i]}}" wx:for-item="course">{{course}}</view>
      </view>
 
-     </view>
+     </block>
      </block>
 </view>
 </block>
