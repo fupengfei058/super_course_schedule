@@ -1,25 +1,30 @@
-<view class="container">
-  <form bindsubmit="formSubmit">
-  <block wx:if="{{!isLogin}}">
-    <view class="row">
-     <text>姓 名：</text>
-     <input type="text" name="userName" placeholder="请输入用户名" value="{{userName}}" />
+<view class="page">
+    <view class="page__hd">
     </view>
-    <view class="row">
-     <text>密 码：</text>
-     <input type="password" name="userPassword" placeholder="请输入密码" value="{{userPassword}}" />
+    <view class="page__bd">
+        <form bindsubmit="formSubmit">
+            <view class="section">
+                <view class="section__title">学号</view>
+                <input type="idcard" placeholder="" name="userName" value="{{userName}}" />
+            </view>
+            <view class="section">
+                <view class="section__title">密码</view>
+                <input password type="text" placeholder="" name="userPassword" value="{{userPassword}}" />
+            </view>
+            <view class="section">
+                <view class="section__title">记住学号和密码</view>
+                <view class="section_gap">
+                    <switch checked name="remind" />
+                </view>
+            </view>
+            <view class="btn-area">
+                <view class="button-wrapper">
+                    <button type="primary" formType="submit" class="primary" disabled="{{isLogin}}">登录</button>
+                </view>
+                <view class="button-wrapper" bindtap="logout">
+                    <button type="default" disabled="{{!isLogin}}">退出登录</button>
+                </view>
+            </view>
+        </form>
     </view>
-    <view class="row">
-      <button type="primary" form-type="submit">登陆</button>
-    </view>
-    </block>
-    <block wx:else>
-    <view>
-    当前用户： <text>{{user}}</text>
-    </view>
-    <view class="row" style="margin-top:20px" bindtap="logout">
-      <button type="default">退出登录</button>
-    </view>
-    </block>
-  </form>
 </view>

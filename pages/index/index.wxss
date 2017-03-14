@@ -1,29 +1,86 @@
-/* pages/login/login.wxss */
-.container{
-  padding: 1rem;
-  font-size: 0.9rem;
-  line-height: 1.5rem;
-  border-shadow: 1px 1px #0099CC;
+page {
+  background-color: #fbf9fe;
+  height: 100%;
 }
-.row{
+.page-body-form-picker {
   display: flex;
+  justify-content: space-between;
+  height: 100rpx;
   align-items: center;
-  margin-bottom: 0.8rem;
+  font-size: 36rpx;
+  margin-left: 20rpx;
+  padding-right: 20rpx;
+  border-bottom: 1px solid #eee;
 }
-.row text{
-  flex-grow: 1;
-  text-align: right;
-}
-.row input{
-  font-size: 0.7rem;
+.page-body-form-picker-value {
   color: #ccc;
-  flex-grow: 3;
-  border: 1px solid #0099CC;
-  display: inline-block;
-  border-radius: 0.3rem;
-  box-shadow: 0 0 0.15rem #aaa;
-  padding: 0.3rem;
 }
-.row button{
-  padding: 0 2rem;
+.page-body-buttons {
+  width: 100%;
+}
+.page-body-button {
+  margin: 25rpx;
+}
+.page-body-button image {
+  width: 150rpx;
+  height: 150rpx;
+}
+.page input,checkbox{
+    padding: 20rpx 30rpx;
+    background-color: #fff;
+}
+checkbox, radio{
+    margin-right: 10px;
+}
+.btn-area{
+    padding: 0 30px;
+}
+.btn-area button{
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}
+.page {
+    min-height: 100%;
+    flex: 1;
+    background-color: #FBF9FE;
+    font-size: 32rpx;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+    overflow: hidden;
+}
+.page__hd{
+    padding: 50rpx 50rpx 50rpx 50rpx;
+    text-align: center;
+}
+.page__title{
+    display: inline-block;
+    padding: 20rpx 40rpx;
+    font-size: 32rpx;
+    color: #AAAAAA;
+    border-bottom: 1px solid #CCCCCC;
+}
+.page__info{
+    display: inline-block;
+    font-size: 38rpx;
+    color: #AAAAAA;
+}
+.page__desc{
+    display: none;
+    margin-top: 20rpx;
+    font-size: 26rpx;
+    color: #BBBBBB;
+}
+.section{
+    margin-bottom: 80rpx;
+}
+.section_gap{
+    padding: 0 30rpx;
+}
+.section__title{
+    margin-bottom: 16rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+}
+.section_gap .section__title{
+    padding-left: 0;
+    padding-right: 0;
 }

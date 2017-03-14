@@ -1,7 +1,21 @@
 <view wx:if="{{course_empty}}">
-   <image class="remind-img" src="/images/nothing.png"></image>
+   <image src="/images/nothing.png"></image>
 </view>
 <block wx:else>
+
+ <view class="phone_one" bindtap="clickYear">
+  <view class="phone_year">{{firstYear}}</view>
+  <image src="../../images/down.png" class="year_image {{selectArea ? 'rotateRight' :''}}"></image>
+  </view>
+ 
+<view class="year_box">
+   <view class="phone_select" hidden="{{selectYear}}">
+   <view wx:for="{{time}}" wx:for-item="i">
+    <view class="select_one" bindtap="mySelect" data-me="{{i}}">{{i}}</view>
+    </view>
+  </view>
+ </view>
+
 <!-- 主体 -->
 <view class="table">
     <view class="thead bg-w">

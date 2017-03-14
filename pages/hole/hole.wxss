@@ -1,44 +1,73 @@
-.container{
-  height: 1500rpx;
+.timeline{
+  height: 100%;
 }
-.container .search{
-  width: 735rpx;
-  height: 65rpx;
-  padding: 12.5rpx 0 12.5rpx 15rpx;
-  background: #2A8CE5;
+.tweet-container {
+  background-color: white;
+  margin: 20rpx;
+  border-radius: 4rpx;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
-.container .search-left{
-  flex: 8;
-  background: #4EA3E7;
-  text-align: left;
+.top-container {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #e1e1e1;
 }
-.container .search-left input{
-  display: inline-block;
-  height: 65rpx;
+.user-container {
+  display: flex;
+  flex-direction: column;
+}
+.card-avatar {
+  background-color: #c8c8c8;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  margin-right: 12rpx
+}
+.card-time {
+  font-size: 26rpx;
+  color: #8999a5;
+  margin-top: 8rpx;
+}
+.card-name {
+  color: #ff9630;
+  font-weight: bold;
+  font-size: 32rpx;
+  margin-top: 8rpx;
+}
+.middle-container {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+}
+.message-text{
+  color: #333;
+  font-size: 30rpx;
+  line-height: 40rpx;
+}
+.message-image {
+  width: 100%;
+  margin-top: 16rpx;
+  background-color: #e1e1e1;   
+}
+.bottom-container {
+  height: 66rpx;
+  background-color: #fafafa;
+}
+.bottom-tool {   
+  justify-content: center;
+  align-items: center;
+}
+.bottom-tool-text {
+  color: #6D6D78;
   font-size: 26rpx;
 }
-.search-placeholder{
-  color: #8CCEFD;
-  line-height: 20rpx;
+.flex-column{
+  display: flex;
+  flex-direction: column;
 }
-.container .search .search-left image{
-  display: inline-block;
-  width: 35rpx;
-  height: 35rpx;
-  padding: 15rpx 15rpx 15rpx 20rpx;
+.flex-row{
+  display: flex;
+  flex-direction: row;
 }
-.container .search .search-right{
+.flex-rest-width {
   flex: 1;
-}
-.container .search .search-right image{
-  width: 45rpx;
-  height: 45rpx;
-  padding: 10rpx;
-}
-
-.container{
-  padding: 0;
-  font-size: 14rpx;
-  background: #F0F4F3;
-  color: #000;
+  width: initial;
 }

@@ -1,12 +1,17 @@
-
 Page({
- data:{
-  userName:'',
-  userPassword:'',
-  user:'',
-  isLogin:false
- },
- 
+  data: {
+    loadingHidden: true,
+    modalHidden: true,
+    modalContent: '',
+    userName:'',
+    userPassword:'',
+    isLogin:false,
+    user:'',
+    successHidden:false,
+    loadingHidden:false,
+    logoutHidden:false
+  },
+
 formSubmit:function(e){
  var $this = this;
  console.log(e.detail.value);
@@ -17,8 +22,9 @@ if(objData.userName && objData.userPassword){
    // 同步方式存储表单数据
    wx.setStorageSync('userName', objData.userName);
    wx.setStorageSync('userPassword', objData.userPassword);
+   wx.setStorageSync('remind', objData.remind);
    //请求教务系统
-wx.request({
+   wx.request({
     url: 'https://fupengfei.s1.natapp.cc/personal_admin/check_user',
     data: {
     'username':objData.userName,
@@ -32,12 +38,13 @@ wx.request({
        wx.setStorageSync('isLogin', true);
        $this.setData({isLogin: true,user: res.data.data});
        //跳转到成功页面
-        wx.switchTab({
-            url:'../../pages/course/course',
-                success:function(){
-                console.log("success");
-            }
-        });
+        // wx.switchTab({
+        //     url:'../../pages/course/course',
+        //         success:function(){
+        //         console.log("success");
+        //     }
+        // });
+        wx.showToast({title: '已登录', icon: 'success', duration: 1500});
       }else{
           wx.setStorageSync('isLogin', false);
           $this.setData({isLogin: false});
@@ -60,12 +67,14 @@ wx.request({
 },
 
 logout:function(e){
-    console.log('logout');
+    wx.showToast({title: '已退出', icon: 'success', duration: 1500});
     //销毁用户数据
-    wx.setStorageSync('isLogin', false);
-    this.setData({isLogin: false});
-    wx.setStorageSync('userName', '');
-    wx.setStorageSync('userPassword', '');
+    this.setData({
+        isLogin: false,
+        userName:'',
+        userPassword:'',
+    });
+    wx.clearStorage();
 },
 
  //加载完后，处理事件 
@@ -93,7 +102,12 @@ logout:function(e){
   // 页面隐藏
  },
  onUnload:function(){
-  // 页面关闭
-  //TODO 不记住密码，销毁缓存
+     // 页面关闭
+     console.log('unload');
+     var remind = wx.getStorageSync('remind');
+     if(!remind){
+        wx.removeStorageSync('userName');
+        wx.removeStorageSync('userPassword');
+     }
  }
 })
