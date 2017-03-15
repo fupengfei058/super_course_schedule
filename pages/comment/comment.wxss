@@ -1,0 +1,82 @@
+.weui-cells {
+  margin-top: 1.17647059em;
+  background-color: #FFFFFF;
+  line-height: 1.41176471;
+  font-size: 17px;
+  overflow: hidden;
+  position: relative;
+}
+.weui-cells_form .weui-cell__ft {
+  font-size: 0;
+}
+.weui-cells_form .weui-icon-warn {
+  display: none;
+}
+.weui-cells_form input,
+.weui-cells_form textarea,
+.weui-cells_form label[for] {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.weui-cell {
+  padding: 10px 15px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.weui-cell__bd {
+  border: 1px solid #5CD6D6;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.weui-textarea {
+  display: block;
+  border: 0;
+  resize: none;
+  width: 100%;
+  color: inherit;
+  font-size: 1em;
+  line-height: inherit;
+  outline: 0;
+}
+.weui-textarea-counter {
+  color: #B2B2B2;
+  text-align: right;
+}
+.weui-cell_warn .weui-textarea-counter {
+  color: #E64340;
+}
+.weui-btn {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 14px;
+  padding-right: 14px;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  color: #FFFFFF;
+  line-height: 2.55555556;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+}
+.weui-btn_mini {
+  display: inline-block;
+  padding: 0 1.32em;
+  line-height: 2.3;
+  font-size: 13px;
+}
+.weui-btn_primary {
+  background-color: #3366FF;
+}
+.button-sp-area {
+  display: flex;
+  justify-content: center;
+}

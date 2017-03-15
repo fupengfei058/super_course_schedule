@@ -2,11 +2,12 @@
 let refreshing = false, refreshed = false, loadingMore = false, loadedEnd = false
 Page({
   data: {
-    timeline: []
+    holes_empty:true,
+    holes: []
   },
  
   onReady() {
-
+    this.getTreeHoles();
   },
   onPullDownRefresh() {
     
@@ -18,6 +19,44 @@ Page({
     
   },
   
+getTreeHoles:function(){
+if(!wx.getStorageSync('isLogin')){
+      wx.showModal({title: '加载失败', content: '请先登录！', showCancel: false, success: function(res) {
+        wx.switchTab({
+          url:'../../pages/index/index',
+            success:function(){
+              console.log("called switchtab.");
+        }
+      });
+    }});
+  }else{
+    //已登录
+    wx.showToast({title: '正在加载树洞', icon: 'loading', duration: 10000});
+    var $this = this;
+      wx.request({
+      url: 'https://fupengfei.s1.natapp.cc/tree_hole_admin/get_tree_holes',
+      data: {},
+      method: 'GET',
+      dataType: 'json',
+      success: function(res){
+        wx.hideToast();
+      if(res.statusCode == 200 && res.data.code == 200){
+        $this.setData({
+          holes_empty:false,
+          holes:res.data.data
+        });
+        console.log(res.data.data);
+      }else{
+        wx.showModal({title: '加载失败', content: '请检查网络设置！', showCancel: false});
+      }
+      },
+      fail: function() {
+        wx.hideToast();
+        wx.showModal({title: '加载失败', content: '请检查网络设置！', showCancel: false});
+      },
+      })
+  }
+},
   
   previewImage(event) {
     wx.previewImage({

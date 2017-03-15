@@ -1,0 +1,11 @@
+<div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请输入不超过100字" rows="3" maxlength="100"></textarea>
+            
+        </div>
+    </div>
+</div>
+<div class="button-sp-area">
+    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">提交</a>
+</div>

@@ -1,14 +1,19 @@
+<view wx:if="{{holes_empty}}">
+   <image src="/images/nothing.png"></image>
+</view>
+<block wx:else>
 <scroll-view scroll-y="true" bindscrolltolower="scrollToLower" class="timeline">
-  <view class="tweet-container" wx:for="true" wx:key="id">
+  <view class="tweet-container" wx:for="{{holes}}" wx:key="id">
+  <view class="hide" value="{{item.stu_no}}"></view>
     <view class="top-container flex-row">
       <image class="card-avatar" src="../../images/nothing.png"></image>                
       <view class="user-container">
-        <text class="card-name">item.nickname</text>
-        <text class="card-time">#item.id item.time</text>
+        <text class="card-name">{{item.nick_name}}</text>
+        <text class="card-time">{{item.create_time}}</text>
       </view>
     </view>
     <view class="middle-container flex-column">
-      <text class="message-text">item.text</text>
+      <text class="message-text">{{item.content}}</text>
       <!--<image class="message-image"
         data-original-pic="{{item.original_pic}}" 
         wx:if="{{item.original_pic}}" 
@@ -17,16 +22,13 @@
         catchtap="previewImage"
       ></image>-->
     </view>
+    <navigator url="../../pages/comment/comment">
     <view class="bottom-container flex-row">
       <view class="bottom-tool flex-row flex-rest-width">
-        <text class="bottom-tool-text">Forward</text>
-      </view>
-      <view class="bottom-tool flex-row flex-rest-width">
-        <text class="bottom-tool-text">Comment</text>
-      </view>
-      <view class="bottom-tool flex-row flex-rest-width">
-        <text class="bottom-tool-text">Forward</text>
+        <text class="bottom-tool-text">我要留言</text>
       </view>
     </view>
+    </navigator>
   </view>
 </scroll-view>
+</block>

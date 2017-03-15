@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/course/course",
     "pages/grade/grade",
-    "pages/hole/hole"
+    "pages/hole/hole",
+    "pages/comment/comment"
   ],
   "window":{
     "backgroundTextStyle":"light",
