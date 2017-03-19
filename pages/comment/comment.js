@@ -5,7 +5,7 @@ Page({
    content : '',
    hole : [],
    comments : [],
-   userName: wx.getStorageSync('userName')
+   userName: ''
  },
  onLoad: function(options) {
    //获取url传递的参数
@@ -40,7 +40,8 @@ Page({
           hole : res.data.data.hole,
           comments : res.data.data.comments,
           is_empty : false,
-          content : ''
+          content : '',
+          userName : wx.getStorageSync('userName')
         });
         wx.showToast({title: '评论成功', icon: 'success', duration: 1500});
     }else{
@@ -69,7 +70,8 @@ getHoleAndComments: function(hole_id){
         $this.setData({
           hole : res.data.data.hole,
           comments : res.data.data.comments,
-          is_empty : false
+          is_empty : false,
+          userName : wx.getStorageSync('userName')
         });
       }else{
         wx.showModal({title: '加载失败', content: '请检查网络设置！', showCancel: false});
@@ -97,7 +99,8 @@ clickDelete: function(event){
           //重新渲染列表
           hole : res.data.data.hole,
           comments : res.data.data.comments,
-          is_empty : false
+          is_empty : false,
+          userName : wx.getStorageSync('userName')
         });
         wx.showToast({title: '已删除', icon: 'success', duration: 1500});
       }

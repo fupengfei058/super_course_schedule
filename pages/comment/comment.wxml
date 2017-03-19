@@ -42,7 +42,7 @@
         <text class="card-time">{{item.create_time}}</text>
       </view>
       <!-- 删除按钮 -->
-        <view class="{{item.stu_no==userName?'':'hide'}}">
+        <view class="{{userName==item.stu_no?'':'hide'}}">
           <image src="../../images/delete.png" class="arrowImage" data-commentid="{{item.comment_id}}" bindtap="clickDelete"></image>
         </view>
     </view>

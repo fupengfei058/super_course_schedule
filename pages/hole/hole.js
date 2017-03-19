@@ -5,7 +5,7 @@ Page({
     list: [],
     offset: 0,
     loadingHidden: false,
-    userName: wx.getStorageSync('userName')
+    userName: ''
   },
  
   onShow() {
@@ -60,7 +60,8 @@ if(!wx.getStorageSync('isLogin')){
           list: option == 'newlist' ? res.data.data : $this.data.list.concat(res.data.data),
           holes_empty:false,
           loadingHidden: true,
-          offset: res.data.offset
+          offset: res.data.offset,
+          userName : wx.getStorageSync('userName')
         })
       }
       },
@@ -86,7 +87,8 @@ clickDelete: function(event){
     success : function(res){
       if(res.statusCode == 200 && res.data.code == 200){
         $this.setData({
-          list:res.data.data
+          list:res.data.data,
+          userName : wx.getStorageSync('userName')
         });
         wx.showToast({title: '已删除', icon: 'success', duration: 1500});
       }
@@ -109,7 +111,8 @@ support: function(event){
     success : function(res){
       if(res.statusCode == 200 && res.data.code == 200){
         $this.setData({
-          list:res.data.data
+          list:res.data.data,
+          userName : wx.getStorageSync('userName')
         });
         console.log('support');
       }
@@ -132,7 +135,8 @@ unsupport: function(event){
     success : function(res){
       if(res.statusCode == 200 && res.data.code == 200){
         $this.setData({
-          list:res.data.data
+          list:res.data.data,
+          userName : wx.getStorageSync('userName')
         });
         console.log('unsupport');
       }
