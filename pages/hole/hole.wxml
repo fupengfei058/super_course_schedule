@@ -2,33 +2,51 @@
    <image src="/images/nothing.png"></image>
 </view>
 <block wx:else>
-<scroll-view scroll-y="true" bindscrolltolower="scrollToLower" class="timeline">
-  <view class="tweet-container" wx:for="{{holes}}" wx:key="id">
-  <view class="hide" value="{{item.stu_no}}"></view>
-    <view class="top-container flex-row">
-      <image class="card-avatar" src="../../images/nothing.png"></image>                
-      <view class="user-container">
-        <text class="card-name">{{item.nick_name}}</text>
-        <text class="card-time">{{item.create_time}}</text>
+<loading hidden="{{loadingHidden}}">正在加载...</loading>
+<scroll-view scroll-y="true" bindscrolltoupper="bindscrolltoupper" bindscrolltolower="bindscrolltolower" style="height: 600px">
+  <block wx:for-items="{{list}}">
+    <!-- 分割线 -->
+    <view class="divLine"></view>
+    <!-- 整体item样式 -->
+    <view class="containsView">
+      <view class="topContainsView">
+        <image class="profileImage" src="../../images/nothing.png" />
+        <view class="topRightView">
+          <text class="topRightName">{{item.nick_name}}</text>
+          <text class="topRightTime">{{item.create_time}}</text>
+        </view>
+        <!-- 删除按钮 -->
+          <view class="{{item.stu_no==userName?'':'hide'}}">
+            <image src="../../images/delete.png" class="arrowImage" data-holeid="{{item.hole_id}}" bindtap="clickDelete"></image>
+          </view>
+      </view>
+      <!-- 中间内容 -->
+      <navigator url="../comment/comment?holeid={{item.hole_id}}">
+      <text class="centerContent">{{item.content}}</text>
+      </navigator>
+      <!-- 底部view样式 -->
+      <view class="bottomView">
+        <view class="bottomItemView">
+          <image class="bottomItemImage" src="../../images/ding.png" data-holeid="{{item.hole_id}}" bindtap="support" />
+          <text class="bottomItemText">{{item.support}}</text>
+        </view>
+        <view class="bottomItemView">
+          <image class="bottomItemImage" src="../../images/cai.png" data-holeid="{{item.hole_id}}" bindtap="unsupport" />
+          <text class="bottomItemText">{{item.unsupport}}</text>
+        </view>
+        <view class="bottomItemView">
+          <navigator url="../comment/comment?holeid={{item.hole_id}}">
+            <image class="bottomItemImage" src="../../images/comment.png" />
+          </navigator>
+          <text class="bottomItemText">{{item.comment_no}}</text>
+        </view>
       </view>
     </view>
-    <view class="middle-container flex-column">
-      <text class="message-text">{{item.content}}</text>
-      <!--<image class="message-image"
-        data-original-pic="{{item.original_pic}}" 
-        wx:if="{{item.original_pic}}" 
-        src="{{item.original_pic}}"
-        mode="aspectFill"
-        catchtap="previewImage"
-      ></image>-->
-    </view>
-    <navigator url="../../pages/comment/comment">
-    <view class="bottom-container flex-row">
-      <view class="bottom-tool flex-row flex-rest-width">
-        <text class="bottom-tool-text">我要留言</text>
-      </view>
-    </view>
+  </block>
+  <div class="fixed-box">
+    <navigator url="../publish/publish">
+      <image src="../../images/round_add.png"></image>
     </navigator>
-  </view>
+  </div>
 </scroll-view>
 </block>

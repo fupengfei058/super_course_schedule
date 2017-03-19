@@ -37,13 +37,7 @@ if(objData.userName && objData.userPassword){
     if(res.statusCode == 200 && res.data.code == 200){
        wx.setStorageSync('isLogin', true);
        $this.setData({isLogin: true,user: res.data.data});
-       //跳转到成功页面
-        // wx.switchTab({
-        //     url:'../../pages/course/course',
-        //         success:function(){
-        //         console.log("success");
-        //     }
-        // });
+        wx.setStorageSync('user', res.data.data);//登录者的名字 树洞页面要用到
         wx.showToast({title: '已登录', icon: 'success', duration: 1500});
       }else{
           wx.setStorageSync('isLogin', false);

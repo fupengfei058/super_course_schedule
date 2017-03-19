@@ -4,7 +4,8 @@
     "pages/course/course",
     "pages/grade/grade",
     "pages/hole/hole",
-    "pages/comment/comment"
+    "pages/comment/comment",
+    "pages/publish/publish"
   ],
   "window":{
     "backgroundTextStyle":"light",

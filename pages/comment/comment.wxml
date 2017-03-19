@@ -1,11 +1,72 @@
-<div class="weui-cells weui-cells_form">
-    <div class="weui-cell">
-        <div class="weui-cell__bd">
-            <textarea class="weui-textarea" placeholder="请输入不超过100字" rows="3" maxlength="100"></textarea>
-            
-        </div>
-    </div>
-</div>
-<div class="button-sp-area">
-    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">提交</a>
-</div>
+<view wx:if="{{holes_empty}}">
+   <image src="/images/nothing.png"></image>
+</view>
+<block wx:else>
+<!-- 原树洞内容 -->
+<view class="divLine"></view>
+    <!-- 整体item样式 -->
+    <view class="containsView">
+    <view class="topContainsView">
+        <image class="profileImage" src="../../images/nothing.png" />
+        <view class="topRightView">
+        <text class="topRightName">{{hole.nick_name}}</text>
+        <text class="topRightTime">{{hole.create_time}}</text>
+        </view>
+    </view>
+    <!-- 中间内容 -->
+    <text class="centerContent">{{hole.content}}</text>
+    <!-- 底部view样式 -->
+    <view class="bottomView">
+        <view class="bottomItemView">
+        <image class="bottomItemImage" src="../../images/ding.png" data-holeid="{{hole.hole_id}}" bindtap="support" />
+        <text class="bottomItemText">{{hole.support}}</text>
+        </view>
+        <view class="bottomItemView">
+        <image class="bottomItemImage" src="../../images/cai.png" data-holeid="{{hole.hole_id}}" bindtap="unsupport" />
+        <text class="bottomItemText">{{hole.unsupport}}</text>
+        </view>
+        <view class="bottomItemView">
+            <image class="bottomItemImage" src="../../images/comment.png" />
+        <text class="bottomItemText">{{hole.comment_no}}</text>
+        </view>
+    </view>
+</view>
+
+<!-- 评论内容 -->
+<scroll-view scroll-y="true" bindscrolltolower="scrollToLower" class="timeline">
+  <view class="tweet-container" wx:for="{{comments}}" wx:key="id">
+    <view class="top-container flex-row">
+      <image class="card-avatar" src="../../images/nothing.png"></image>                
+      <view class="user-container">
+        <text class="card-name">{{item.nick_name}}</text>
+        <text class="card-time">{{item.create_time}}</text>
+      </view>
+      <!-- 删除按钮 -->
+        <view class="{{item.stu_no==userName?'':'hide'}}">
+          <image src="../../images/delete.png" class="arrowImage" data-commentid="{{item.comment_id}}" bindtap="clickDelete"></image>
+        </view>
+    </view>
+    <view class="middle-container flex-column">
+      <text class="message-text">{{item.content}}</text>
+    </view>
+    <view class="bottom-container flex-row">
+      <!--<view class="bottom-tool flex-row flex-rest-width">
+        <text class="bottom-tool-text">回复</text>
+      </view>-->
+    </view>
+  </view>
+</scroll-view>
+
+<view class="bottom-container flex-row">
+</view>
+
+<!--底部固定评论区-->
+<view class="footer flex-row">
+      <view class="input-container flex-rest-width">
+        <input id="message" value="{{content}}" placeholder="点击输入你的评论" class="message-input" bindchange="bindChange"/>
+      </view>
+      <view class="btn-area">
+        <button bindtap="publishComment" class="send-message-btn" type="primary" size="mini">评论</button>
+      </view>
+  </view>
+</block>

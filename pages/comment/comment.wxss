@@ -1,82 +1,246 @@
-.weui-cells {
-  margin-top: 1.17647059em;
-  background-color: #FFFFFF;
-  line-height: 1.41176471;
-  font-size: 17px;
-  overflow: hidden;
-  position: relative;
+.contain{
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
 }
-.weui-cells_form .weui-cell__ft {
-  font-size: 0;
+/*原树洞内容*/
+/*整体view样式*/
+.containsView{
+  padding: 15rpx 25rpx 15rpx 25rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  background-color: white;
+  border-bottom: solid 2px lightskyblue;
 }
-.weui-cells_form .weui-icon-warn {
-  display: none;
-}
-.weui-cells_form input,
-.weui-cells_form textarea,
-.weui-cells_form label[for] {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-.weui-cell {
-  padding: 10px 15px;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
+/*头部整体样式*/
+.topContainsView{
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 18rpx;
 }
-.weui-cell__bd {
-  border: 1px solid #5CD6D6;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
-}
-.weui-textarea {
-  display: block;
-  border: 0;
-  resize: none;
+/*中间文字样式*/
+.centerContent{
+  font-size: 11pt;
+  margin-top: 20rpx;
   width: 100%;
-  color: inherit;
-  font-size: 1em;
-  line-height: inherit;
-  outline: 0;
+  height: 600rpx;
 }
-.weui-textarea-counter {
-  color: #B2B2B2;
-  text-align: right;
+ /*头像样式*/
+.profileImage{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
 }
-.weui-cell_warn .weui-textarea-counter {
-  color: #E64340;
-}
-.weui-btn {
-  position: relative;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 14px;
-  padding-right: 14px;
-  box-sizing: border-box;
-  font-size: 18px;
-  text-align: center;
-  text-decoration: none;
-  color: #FFFFFF;
-  line-height: 2.55555556;
-  border-radius: 5px;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  overflow: hidden;
-}
-.weui-btn_mini {
-  display: inline-block;
-  padding: 0 1.32em;
-  line-height: 2.3;
-  font-size: 13px;
-}
-.weui-btn_primary {
-  background-color: #3366FF;
-}
-.button-sp-area {
+/*头部显示名字和时间整体样式*/
+.topRightView{
+  margin-left: 15rpx;
   display: flex;
+  flex-direction: column;
+}
+/*用户名称样式*/
+.topRightName{
+  font-size: 9pt;
+}
+/*时间样式*/
+.topRightTime{
+  font-size: 9pt;
+  color: #b8b2b2;
+  margin-top: 10rpx;
+}
+/*底部view整体样式*/
+.bottomView{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+/*每个Item样式*/
+.bottomItemView{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
+  margin-top: 18rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+/*Item样式中的图标样式 顶 踩 分享 评论*/
+.bottomItemImage{
+  width: 45rpx;
+  height: 45rpx;
+}
+/*Item中的文字样式  顶 踩 分享 评论*/
+.bottomItemText{
+  font-size: 10pt;
+  color: #b8b2b2;
+  margin-left: 10rpx;
+  margin-top: 8rpx;
+}
+/*分割线样式*/
+.divLine{
+  background: #f3f3f3;
+  width: 100%;
+  height: 15rpx;
+}
+.fixed-box image{
+  position:fixed;
+  width:40px;
+  height:40px;
+  right:30px;
+  bottom:20px;
+}
+
+
+/*评论内容*/
+.tweet-container {
+  background-color: white;
+  margin: 20rpx;
+  border-radius: 4rpx;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.top-container {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+}
+.user-container {
+  display: flex;
+  flex-direction: column;
+}
+.card-avatar {
+  background-color: #c8c8c8;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  margin-right: 12rpx
+}
+.card-time {
+  font-size: 26rpx;
+  color: #8999a5;
+  margin-top: 8rpx;
+}
+.card-name {
+  color: deepskyblue;
+  /*font-weight: bold;*/
+  font-size: 35rpx;
+  margin-top: 8rpx;
+}
+.middle-container {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+}
+.message-image {
+  width: 100%;
+  margin-top: 16rpx;
+  background-color: #e1e1e1;   
+}
+.bottom-container {
+  height: 66rpx;
+  background-color: #fafafa;
+}
+.bottom-tool {   
+  justify-content: center;
+  align-items: center;
+}
+.bottom-tool-text {
+  color: #6D6D78;
+  font-size: 30rpx;
+}
+view, scroll-view, input, text{
+  box-sizing: border-box;  
+}
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.flex-rest-height {
+  flex: 1;
+  height: initial;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+.flex-rest-width {
+  flex: 1;
+  width: initial;
+}
+.placeholder-class {
+  color: #808080;
+}
+
+
+/*底部固定评论区*/
+.footer{
+  width: 100%;
+  height: 94rpx;
+  background: #f7f7f8;
+  border-top: 1rpx solid #c4c4c4;
+  padding: 16rpx;
+  position:fixed;
+  bottom: 0;
+}
+.message-input{
+  width: 100%;
+  height: 100%;
+  border: 1rpx solid #c8c8cd;
+  border-radius: 6rpx;
+  background: #fff;
+  padding: 0 10rpx;
+  font-size: 30rpx;
+}
+.send-message-btn{
+  color: #ff9630;
+  font-size: 30rpx;
+  margin-left: 16rpx;
+}
+/*.timeline{
+  padding: 0 30rpx;
+  padding-bottom: 94rpx;
+}*/
+.message{
+  margin: 28rpx 0;
+}
+.message-text{
+  font-size: 32rpx;
+  border-radius: 40rpx;
+  display: inline-block;
+  background-color: #e5e5ea; 
+  padding: 20rpx 30rpx;
+  max-width: 95%;
+  word-break: break-all;
+  border-radius: 1pc 1pc 1pc 0;
+  -webkit-mask-box-image: url("data:image/svg+xml;charset=utf-8,<svg height='35' viewBox='0 0 96 70' width='48' xmlns='http://www.w3.org/2000/svg'><path d='m96 35c1 7-5 37-42 35-37 2-43-28-42-35-1-7 5-37 42-35 37-2 43 28 42 35z'/><path d='m0 70c6-2 12-10 12-19v-16l14 27s-8 8-26 8z'/></svg>") 50% 42% 46% 56%;
+}
+.message-received-text{
+  padding-left: 40rpx;
+}
+.message-sent{
+  flex-direction: row-reverse;
+  color: #fff;  
+}
+.message-sent-text{ 
+  padding-right: 40rpx; 
+  background-color: #00d449;
+  border-radius: 1pc 1pc 0 1pc;
+  -webkit-mask-box-image: url("data:image/svg+xml;charset=utf-8,<svg height='35' viewBox='0 0 96 70' width='48' xmlns='http://www.w3.org/2000/svg'><path d='m84 35c1 7-5 37-42 35-37 2-43-28-42-35-1-7 5-37 42-35 37-2 43 28 42 35z'/><path d='m96 70c-6-2-12-10-12-19v-16l-14 27s8 8 26 8z'/></svg>") 50% 56% 46% 42%;
+}
+.message-image{
+  width: 70%;
+  height: 300rpx;
+  background-color: #c8c8c8;
+  border-radius: 10rpx;
+}
+
+.arrowImage{
+  z-index: 100;
+  position: absolute;
+  right:2.5%;
+  width: 40rpx;
+  height: 40rpx;
+  margin:0rpx 20rpx 50rpx 0;
+  transition: All 0.4s ease;  
+  -webkit-transition: All 0.4s ease;
+}
+.hide{
+  display:none
 }

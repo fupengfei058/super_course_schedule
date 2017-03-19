@@ -1,84 +1,98 @@
-.timeline{
-  height: 100%;
-}
-.tweet-container {
+/*整体view样式*/
+.containsView{
+  padding: 15rpx 15rpx 15rpx 15rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
   background-color: white;
-  margin: 20rpx;
-  border-radius: 4rpx;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
-.top-container {
-  padding: 20rpx;
-  border-bottom: 1rpx solid #e1e1e1;
-}
-.user-container {
-  display: flex;
-  flex-direction: column;
-}
-.card-avatar {
-  background-color: #c8c8c8;
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 8rpx;
-  margin-right: 12rpx
-}
-.card-time {
-  font-size: 26rpx;
-  color: #8999a5;
-  margin-top: 8rpx;
-}
-.card-name {
-  color: #5CD6D6;
-  font-weight: bold;
-  font-size: 32rpx;
-  margin-top: 8rpx;
-}
-.middle-container {
-  padding: 20rpx;
-  border-bottom: 1rpx solid #e1e1e1;
-}
-.message-text{
-  color: #333;
-  font-size: 30rpx;
-  line-height: 40rpx;
-}
-.message-image {
-  width: 100%;
-  margin-top: 16rpx;
-  background-color: #e1e1e1;   
-}
-.bottom-container {
-  height: 66rpx;
-  background-color: #fafafa;
-}
-.bottom-tool {   
-  justify-content: center;
-  align-items: center;
-}
-.bottom-tool-text {
-  color: #6D6D78;
-  font-size: 10pt;
-}
-.flex-column{
-  display: flex;
-  flex-direction: column;
-}
-.flex-row{
+/*头部整体样式*/
+.topContainsView{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  margin-bottom: 18rpx;
 }
-.flex-rest-width {
-  flex: 1;
-  width: initial;
+/*中间文字样式*/
+.centerContent{
+  font-size: 11pt;
+  margin-top: 20rpx;
+  width: 100%;
+  height: 600rpx;
 }
-.appreciate {
-  width: 36rpx;
-  height: 36rpx;
+ /*头像样式*/
+.profileImage{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
 }
-.appreciate_num {
+/*头部显示名字和时间整体样式*/
+.topRightView{
+  margin-left: 15rpx;
+  display: flex;
+  flex-direction: column;
+}
+/*用户名称样式*/
+.topRightName{
   font-size: 9pt;
-  margin-right: 1rem;
+}
+/*时间样式*/
+.topRightTime{
+  font-size: 9pt;
+  color: #b8b2b2;
+  margin-top: 10rpx;
+}
+/*底部view整体样式*/
+.bottomView{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+/*每个Item样式*/
+.bottomItemView{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+/*Item样式中的图标样式 顶 踩 分享 评论*/
+.bottomItemImage{
+  width: 45rpx;
+  height: 45rpx;
+}
+/*Item中的文字样式  顶 踩 分享 评论*/
+.bottomItemText{
+  font-size: 10pt;
+  color: #b8b2b2;
+  margin-left: 10rpx;
+  margin-top: 8rpx;
+}
+/*分割线样式*/
+.divLine{
+  background: #f3f3f3;
+  width: 100%;
+  height: 15rpx;
+}
+.fixed-box image{
+  position:fixed;
+  width:40px;
+  height:40px;
+  right:30px;
+  bottom:20px;
+}
+.arrowImage{
+  z-index: 100;
+  position: absolute;
+  right:2.5%;
+  width: 40rpx;
+  height: 40rpx;
+  margin:0rpx 20rpx 50rpx 0;
+  transition: All 0.4s ease;  
+  -webkit-transition: All 0.4s ease;
 }
 .hide{
-    display:none
+  display:none
 }
