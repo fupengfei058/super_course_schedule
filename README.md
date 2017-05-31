@@ -15,19 +15,19 @@
 ### 发表评论时序图：
 ![github](https://github.com/fupengfei058/super_course_schedule/blob/master/png/publish_comments.png)
 <h3>个人主页界面：</h3>
-<img src="https://github.com/fupengfei058/super_course_schedule/blob/master/png/personal_homepage.png" width="350px">
+<img src="https://github.com/fupengfei058/super_course_schedule/blob/master/png/personal_homepage.png" width="350px" border="1px">
 <br>
 <h3>课程查询界面：</h3>
-<img src="https://github.com/fupengfei058/super_course_schedule/blob/master/png/curriculum_schedule.png" width="350px">
+<img src="https://github.com/fupengfei058/super_course_schedule/blob/master/png/curriculum_schedule.png" width="350px" border="1px">
 <br>
 <h3>成绩查询界面：</h3>
-<img src="https://github.com/fupengfei058/super_course_schedule/blob/master/png/score_query_interface.png" width="350px">
+<img src="https://github.com/fupengfei058/super_course_schedule/blob/master/png/score_query_interface.png" width="350px" border="1px">
 <br>
 <h3>树洞界面：</h3>
-<img src="https://github.com/fupengfei058/super_course_schedule/blob/master/png/tree_hole_interface.png" width="350px">
+<img src="https://github.com/fupengfei058/super_course_schedule/blob/master/png/tree_hole_interface.png" width="350px" border="1px">
 <br>
 <h3>发表树洞界面：</h3>
-<img src="https://github.com/fupengfei058/super_course_schedule/blob/master/png/publish_tree_hole_interface.png" width="350px">
+<img src="https://github.com/fupengfei058/super_course_schedule/blob/master/png/publish_tree_hole_interface.png" width="350px" border="1px">
 <br>
 <h3>评论界面：</h3>
-<img src="https://github.com/fupengfei058/super_course_schedule/blob/master/png/comment_interface.png" width="350px">
+<img src="https://github.com/fupengfei058/super_course_schedule/blob/master/png/comment_interface.png" width="350px" border="1px">
